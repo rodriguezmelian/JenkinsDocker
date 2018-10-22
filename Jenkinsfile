@@ -1,18 +1,18 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
-            agent {
+            step {
                 sh "docker build  -t a ."
             }
         }
         stage('Levanto el Container') {
-            agent {
+            step {
                 sh "docker run -d  --name 'a' -p 8031:8080  -v /var/run/docker.sock:/var/run/docker.sock a"
             }
         }
         stage('Veo los logs') {
-            agent {
+            step {
                 sh "docker logs a"
             }
         }
