@@ -1,25 +1,22 @@
 #!/bin/bash
-pipeline
-
-{
+pipeline {
     agent any
-    stages{
-        
-            stage('Compilacion')
-		{
-			agent {
-				docker { 'build  -t $IMAGETAG .'
-				}
-    {
-			agent {
-				docker { 'run -d  --name $NAME -p $PORT:8080  -v /var/run/docker.sock:/var/run/docker.sock $IMAGETAG'
-				}
-			}
-    {
-			agent {
-				docker { 'docker logs $NAME'
-				}
-			}					
-	    }
+
+    stages {
+        stage('Build') {
+            steps {
+                docker 'build  -t $IMAGETAG .'
+            }
+        }
+        stage('Levanto el Container') {
+            steps {
+                docker 'run -d  --name $NAME -p $PORT:8080  -v /var/run/docker.sock:/var/run/docker.sock $IMAGETAG'
+            }
+        }
+        stage('Veo los logs') {
+            steps {
+                docker 'logs $NAME'
+            }
+        }
     }
 }
