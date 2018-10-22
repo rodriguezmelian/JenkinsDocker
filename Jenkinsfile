@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker { build  -t $IMAGETAG .}
+                docker { build  -t "$IMAGETAG" .}
             }
         }
         stage('Levanto el Container') {
