@@ -20,5 +20,6 @@ pipeline
 				docker { 'docker logs $NAME'
 				}
 			}					
+	    }
     }
 }
