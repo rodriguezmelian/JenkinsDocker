@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker { build  -t "$IMAGETAG" .}
+                docker { build  -t a .}
             }
         }
         stage('Levanto el Container') {
             agent {
-                docker {run -d  --name $NAME -p $PORT:8080  -v /var/run/docker.sock:/var/run/docker.sock $IMAGETAG}
+                docker {run -d  --name a -p 8031:8080  -v /var/run/docker.sock:/var/run/docker.sock a}
             }
         }
         stage('Veo los logs') {
             agent {
-                docker { logs $NAME}
+                docker { logs a}
             }
         }
     }
