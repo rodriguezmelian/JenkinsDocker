@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "docker build  -t a ."
+                sh "docker build  -t ${IMAGTAG} ."
             }
         }
-        stage('Levanto el Container') {
+        stage('Creo el Container y le asigno un nombre y puerto') {
             steps {
-                sh "docker run -d  --name 'a' -p 8031:8080  -v /var/run/docker.sock:/var/run/docker.sock a"
+                sh "docker run -d  --name ${NAME} -p ${PORT}:8080  -v /var/run/docker.sock:/var/run/docker.sock ${IMAGTAG}"
             }
         }
         stage('Veo los logs') {
             steps {
-                sh "docker logs a"
+                sh "docker logs ${NAME} "
             }
         }
     }
