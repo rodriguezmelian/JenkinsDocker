@@ -8,6 +8,7 @@ USER root
 RUN apt-get update && \
     apt-get -y install apt-transport-https \
       ca-certificates \
+      vim \
       curl \
       gnupg2 \
       software-properties-common && \
