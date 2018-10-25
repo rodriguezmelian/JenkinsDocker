@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Crea directorio') {
             steps {
-                dir ('/tmp') {
-                      sh "whoami"
-                     // sh  "mkdir ${PORT}"
+                dir ('/tmp/bkp') {
+                   //   sh "whoami"
+                      sh  "mkdir ${PORT}"
                 }
             }
         }        
