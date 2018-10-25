@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Agrego volume para backp') {
             steps {
-                sh "ls"
+                dir ('subdir') {
+                    sh 'pwd'
+                 }
             }            
         }
     }
