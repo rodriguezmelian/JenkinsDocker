@@ -18,7 +18,8 @@ pipeline {
         }
         stage('Agrego volume para backp') {
             steps {
-                sh "docker run -d -v jenkins-bkp:/tmp/ ${NAME}"
+                sh "mkdir /tmp/bkp"
+                sh "docker run -d -v /tmp/bkp:/tmp/ ${NAME}"
             }            
         }
     }
