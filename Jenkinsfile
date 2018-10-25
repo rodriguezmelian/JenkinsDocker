@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Agrego volume para backp') {
             steps {
-                sh "mkdir -p /tmp/${PORT}"
+                sh "ls"
             }            
         }
     }
