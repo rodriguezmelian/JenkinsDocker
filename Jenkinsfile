@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Agrego volume para backp') {
             steps {
-                sh "mkdir /tmp/${PORT}"
+                sh "mkdir -p /tmp/${PORT}"
                 sh "docker run -d -v /tmp/bkp:/tmp/ ${NAME}"
             }            
         }
