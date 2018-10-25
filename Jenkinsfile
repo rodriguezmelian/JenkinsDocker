@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Veo los logs') {
             steps {
-                sh "docker exec  ${NAME} cat /var/jenkins_home/secrets/initialAdminPassword"  
+                //sh "docker exec  ${NAME} cat /var/jenkins_home/secrets/initialAdminPassword"  
                 sh "docker exec  ${NAME} git config --global http.sslVerify false"
            }
        } 
