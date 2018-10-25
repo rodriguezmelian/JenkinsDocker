@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh "docker logs ${NAME} "
             }
+        }
         stage('Agrego volume para backp') {
             steps {
                 sh "docker run -d -v jenkins-bkp:/tmp/ ${NAME}"
