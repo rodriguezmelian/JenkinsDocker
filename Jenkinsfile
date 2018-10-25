@@ -10,7 +10,7 @@ pipeline {
             steps {
                 dir ('/tmp') {
                       sh "whoami"
-                      sh  "mkdir ${PORT}"
+                     // sh  "mkdir ${PORT}"
                 }
             }
         }        
