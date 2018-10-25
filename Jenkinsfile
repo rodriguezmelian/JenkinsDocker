@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Veo los logs') {
             steps {
-                sh "docker logs ${NAME} "
+                sh "docker container exec -it ${NAME} git config --global http.sslVerify false"  
             }
         }
     }
