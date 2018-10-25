@@ -25,10 +25,5 @@ pipeline {
                 sh "docker exec  ${NAME} git config --global http.sslVerify false"
            }
        } 
-        stage('Cat Paswd Jenkins') {
-            steps {
-                sh "docker exec  ${NAME} cat /var/jenkins_home/secrets/initialAdminPassword"  
-           }
-       } 
     }
 }
