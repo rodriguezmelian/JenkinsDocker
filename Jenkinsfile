@@ -26,7 +26,8 @@ pipeline {
            }
        } 
         stage('email Alex!'){
-            emailext(
+            steps {
+              emailext(
                body: 'your component is released',
                attachmentsPattern: '**/*.md',
                from: env.DEFAULT_REPLYTO,
@@ -35,5 +36,6 @@ pipeline {
                to: 'rodriguezmelian@hotmail.com'
                )
             }
-      } 
+        }
+     } 
 }
