@@ -25,5 +25,17 @@ pipeline {
                 sh "docker exec  ${NAME} git config --global http.sslVerify false"
            }
        } 
+        stage('email'){
+            steps {
+              emailext(
+               body:'Se adjunta archivo con la infraestructura en proceso',
+               from: env.DEFAULT_REPLYTO,
+               replyTo: env.DEFAULT_REPLYTO, 
+               attachmentsPattern: '**/Datosimportantes.html',
+               subject: 'README',
+               to: ${MAIL}        
+                      )
+            }
+        }
     }
 }
