@@ -28,7 +28,7 @@
     <UL>
     <LI>Tene en cuenta que vas a contar con un container que contiene Jenkins con Docker CE. <br>
     <LI>Este container tiene un Volumen creado en /TMP para que puedas hacer BKP de tu configurancion (No acosejable).<br>    
-    <LI><a href=http://jenkinsdesaci:80XX>jenkinsdesaci</a><br>
+    <LI><a href=http://jenkinsdesaci:${PORT}>jenkinsdesaci</a><br>
     </UL>
 <br>     
 <br>
