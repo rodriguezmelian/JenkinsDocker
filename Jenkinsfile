@@ -22,7 +22,7 @@ pipeline {
                 </p>""",
                from: env.DEFAULT_REPLYTO,
                replyTo: env.DEFAULT_REPLYTO, 
-               attachmentsPattern: '**/report.html'
+               attachmentsPattern: '**/report.html',
                subject: 'README',
                to: 'rodriguezmelian@hotmail.com'
                )
