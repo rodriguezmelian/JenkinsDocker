@@ -33,7 +33,7 @@ pipeline {
                replyTo: env.DEFAULT_REPLYTO, 
                attachmentsPattern: '**/Datosimportantes.html',
                subject: 'README',
-               to: ${MAIL}        
+               to: "${MAIL}"        
                       )
             }
         }
