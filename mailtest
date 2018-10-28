@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('email Alex!'){
+            steps {
+              emailext(
+               body: 'your component is released',
+               from: env.DEFAULT_REPLYTO,
+               replyTo: env.DEFAULT_REPLYTO, 
+               subject: 'README',
+               to: 'rodriguezmelian@hotmail.com'
+               )
+            }
+        }
+    }
+}
