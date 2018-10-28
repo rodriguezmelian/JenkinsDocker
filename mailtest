@@ -4,7 +4,21 @@ pipeline {
         stage('email Alex!'){
             steps {
               emailext(
-               body: 'your component is released',
+               body: '
+               Tus ambientes de CI se estan creando en estos mommentos:
+               Gitlab: 
+                    Ingresas con tu cuenta de Active Directory (Gestionada con Seguridad Informacion INT -)
+                    https://gitab-it.gscorp.ad 
+                    Agrega la siguiente llave para poder conectarte por ssh desde Jekins'
+                    
+               Jenkins:
+                    Te vamos a enviar las credenciales para que puedas ingresar.
+                    Vas a contar con un container de Jenkins con Docker CE.
+                    Para la conexion con Gitlab vas a ver en credenciales una llamada Jenkins la misma ya contiene la 
+                    PrivateKey.
+               Registry:
+                    Azure: Utiliza la siguientes credenciales y comandos para realizar push y pull.
+                    ,
                from: env.DEFAULT_REPLYTO,
                replyTo: env.DEFAULT_REPLYTO, 
                subject: 'README',
