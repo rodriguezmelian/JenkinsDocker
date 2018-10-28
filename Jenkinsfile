@@ -25,15 +25,15 @@ pipeline {
                 sh "docker exec  ${NAME} git config --global http.sslVerify false"
            }
        } 
-        stage('Email') {
-            steps {
-                emailext (
-                   subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                   body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                   <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
-                   to: 'rodriguezmelian@hotmail.com'
-                  )
-             }
-        }
-    } 
+        stage('email Alex!'){
+            emailext(
+               body: 'your component is released',
+               attachmentsPattern: '**/*.md',
+               from: env.DEFAULT_REPLYTO,
+               replyTo: env.DEFAULT_REPLYTO, 
+               subject: 'README',
+               to: 'rodriguezmelian@hotmail.com'
+               )
+            }
+      } 
 }
