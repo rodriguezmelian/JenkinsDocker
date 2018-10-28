@@ -29,11 +29,10 @@ pipeline {
             steps {
               emailext(
                body: 'your component is released',
-               attachmentsPattern: '**/*.md',
                from: env.DEFAULT_REPLYTO,
                replyTo: env.DEFAULT_REPLYTO, 
                subject: 'README',
-               to: 'rodriguezmelian@hotmail.com'
+               to: 'gabriel.rodriguezmelian@weit.com'
                )
             }
         }
