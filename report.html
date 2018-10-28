@@ -10,61 +10,48 @@
 
 <P> Ingresas con tu cuenta de Active Directory (Gestionada con Seguridad Informacion INT - 0909) <br>
      <a href=https://gitab-it.gscorp.ad>Gitlab-it</a><br>
-     Agrega la siguiente llave para poder conectarte por ssh desde Jekins<br>
+     Agrega la siguiente llave pub para poder conectarte por ssh desde Jekins<br>
      <br>
      <p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTc5kkWT5DXa689g0uVCqaDtp58c2hDdfag/1314ATGBxMR <br>
           V+DPf2lxD+D//dWjXETUwB7Yyk2CUI+pbwQydxhNvQv/nPbogfw4kB8F6lGtUx0zxtzy7yGIctDJKVJ0weU <br>
           MfmnTFHSZEiYKoIp3E++yeZBHotMpVYI8IUWwZt5vBErg6UK6jfimmygOYUiXsTn54n4KkWe3XPLLKXbNvd <br>
           8NX3AjhYcwhxODhuy2nkAbbu3w4mfdhhegkNy7jVq673XUCrNXVB06/BLjE1mlkmH/AayHnvwWNtx6QZ1Hr <br>
           kzEn9CK5tnpN1anKQ7rlKvMmgyy9Vyf+P08W9DvuEUSjj <br>
+     <br>
+     <p> La llave privada va estar en el store de Credenciales de Jenkins.
 <br>
 <P>En caso de tener alguna consulta no dudes en enviar un mail a tecnologiaaplicaciones@supervielle.com.ar <br>
 <HR>
 <br>
 <H2> Jekins:</H2>
 <p> Este ambiente esta en proceso de creacion, pronto te llegara un mail con el link de acceo.<br>
-    Tene en cuenta que vas a contar con un container que contiene Jenkins con Docker CE. <br>
-    Este container tiene un Volumen creado en /TMP para que puedas hacer BKP de tu configurancion (No acosejable).<br>    
-    <a href=http://jenkinsdesaci:80XX>Gitlab-it>jenkinsdesaci</a><br>
+    <UL>
+    <LI>Tene en cuenta que vas a contar con un container que contiene Jenkins con Docker CE. <br>
+    <LI>Este container tiene un Volumen creado en /TMP para que puedas hacer BKP de tu configurancion (No acosejable).<br>    
+    <LI><a href=http://jenkinsdesaci:80XX>jenkinsdesaci</a><br>
+    </UL>
+<br>     
+<br>
+<P>En caso de tener alguna consulta no dudes en enviar un mail a tecnologiaaplicaciones@supervielle.com.ar <br>
+<HR>
+<H2> Azure Registry:</H2>
+<p> Podes subir tus imagenes en Azure, a continuacion te enviamos las credenciales y los pasos a seguir.<br>
+    <UL>
+    <LI> Login to your container registry: <br> docker login spvaksdesatest.azurecr.io<br>
+         User: spvaksdesatest <br>
+         Pass: xPbwsUjfgOkfNdkVjGd6Wv9NKpuXss/3 <br>
+    <LI> Push to your registry: <br>  docker tag hello-world spvaksdesatest.azurecr.io/hello-world 
+         docker push spvaksdesatest.azurecr.io/hello-world <br>
+    <LI> docker pull spvaksdesatest.azurecr.io/hello-world <br>
+    <LI> And you're ready!     
+    </UL>
 <br>     
 <br>
 <P>En caso de tener alguna consulta no dudes en enviar un mail a tecnologiaaplicaciones@supervielle.com.ar <br>
 <HR>
 
 
-<P>Otro parrafo, esto ya es un poco rollo.
-
-<H3>Pongamos un subtítulo<H3>
-
-<P>Por cierto,que paso con las <A HREF= "#pepe ">anclas</A>?
-
-<HR>
-
-<UL>
-
-<LI> Esto es una lista no ordenada.
-
-<LI> Las listas quedan mejor si tienen varios elementos.
-
-</UL>
-
-Me voy al <A HREF= "http://www.iac.es/home.html ">IAC</A>.
-
-<P>Vamos a crear un <EM>ancla </EM>, o lo que es lo mismo, un <A NAME="pepe">anchor.</A>
-
-.....................................................
-
-.....................................................
-
 </BODY>
 
 </HTML>
                     
-               Jenkins:<br>
-                    Vas a contar con un container de Jenkins con Docker CE.<br>
-                    En breve recibiras un mail con el link mas las credenciales <br>
-                    Para la conexion con Gitlab ya vas a tener la credencial condigurada con la <br>
-                    PrivateKey correspondiente.<br>
-               Registry: <br>
-                    Azure: Utiliza la siguientes credenciales y comandos para realizar push y pull.<br>
-
