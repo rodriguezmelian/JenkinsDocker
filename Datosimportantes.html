@@ -11,19 +11,44 @@ Bienvenido a Supervielle!!
     
 <HR>
 <H2> Gitlab:</H2>
-
-<P> Ingresas con tu cuenta de Active Directory (Gestionada con Seguridad Informacion INT - 0909) <br>
-     <a href=https://gitab-it.gscorp.ad>Gitlab-it</a><br>
-     Agrega la siguiente llave pub para poder conectarte por ssh desde Jekins<br>
-     <br>
-     <p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTc5kkWT5DXa689g0uVCqaDtp58c2hDdfag/1314ATGBxMR <br>
-          V+DPf2lxD+D//dWjXETUwB7Yyk2CUI+pbwQydxhNvQv/nPbogfw4kB8F6lGtUx0zxtzy7yGIctDJKVJ0weU <br>
-          MfmnTFHSZEiYKoIp3E++yeZBHotMpVYI8IUWwZt5vBErg6UK6jfimmygOYUiXsTn54n4KkWe3XPLLKXbNvd <br>
-          8NX3AjhYcwhxODhuy2nkAbbu3w4mfdhhegkNy7jVq673XUCrNXVB06/BLjE1mlkmH/AayHnvwWNtx6QZ1Hr <br>
-          kzEn9CK5tnpN1anKQ7rlKvMmgyy9Vyf+P08W9DvuEUSjj <br>
-     <br>
-     <p> La llave privada va estar en el store de Credenciales de Jenkins.
-<br>
+	<P> Ingresas con tu cuenta de Active Directory (Gestionada con Seguridad Informacion INT - 0909) <br>
+	     <a href=https://gitab-it.gscorp.ad>Gitlab-it</a><br>
+		 
+   En tu PC Linux, Mac o Windows (GitBash de Windows) debes generar la Key:<br>
+   ssh-keygen -t rsa -C "nombre.apellido@supervielle.com.ar" -b 4096<br>
+   Visualiza la key que debes agregar en Gitlab con este comando: <br> 
+   $ cat ~/.ssh/id_rsa.pub<br>
+   Y nos muestra una key publica como esta:<br><br><br>			
+   ssh-rsa<br>
+			AAAAB3NzaC1yc2EAAAADAQABAAACAQDlvNZ+/I+q3lfeyRhvFViQbm46STb+8jHGmOleWE9Uu7bvpIcb78qvUe1KfWDRNJ6UGFbHLR+HyfE2iBR9bME0KMiHNnPJ1ZvGuU+<br>
+			Xzu3HwbpvJYZwE7FCgL7Ew4zkiBTSHpHXC9Yvlcb+Iz5PK6IWdLVR+R5WdlbenLmqhV14dvZdAQlqCxyeVIvWpruBNQVB1uzcxKPOpttYqm0BrOjrC0dhJxCq1uuBWOsheHHJm6hj3O<br>
+			Zpii0LSC/+xBgIlZ/SS6e+55/gyxafcGwYu6vdBXvtzFwSMcK5aRAgZzdG1zLOdnlTdB7eO/QEI3d9GcaquqTW5TDo6HTw3ccPYAj3ilgoLy1wxlX8lmHnibFA8ewSAlktHzkmD+I9F<br>
+			Hzt1enCoxayQYGgx4NEYM76atSX8hdzUbVJS09PihySjE8AnKvG6prDPeWpeqNgRRqbUlOv0uNBil9ZniTy3iYto5C74R0YaAYXolXXnlsr7KHMRn/YgEhTrhxLBKo9DpdJaU4IIo2N<br>
+			dfjZmWjY6HKgdygTiWXTMNaE9uz7lL4pL1KF0ppLlivrctW6O6N090mPBGp1YYQw9+FdRxVWIi/YMbuF/f6H5uzwv3dlqr1ripzdfvjfF4bIV86+PopKEx4IdoxlexP2ZINaAZBNA/g<br>
+			Z5GSiojoEabKXv4mlY+YpTApZkQ== nombre.apellido@supervielle.com.ar<br><br><br>
+			
+   copias la key<br>
+   Ahora vas a tu profile de gilLab https://gitlab-it.gscorp.ad/profile<br>
+   En el panel izquierdo en SSH Keys<br>
+   Aquí pondras la key generada anteriormente quedando asi<br>
+   <img  class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/800/1*vycITusC2adkKKScGBSj6w.png" src="https://cdn-images-1.medium.com/max/800/1*vycITusC2adkKKScGBSj6w.png"><br>
+   Finalmente le damos al bot&oacute;n "Add key".<br>
+					
+   <br>
+   <p> La key privada deberas agregarla al store de Credenciales de Jenkins de la sgte. forma:<br>
+   Ingresamos al JOB de nuestro Jenkins y nos vamos a la seccion "Configurar"<br> 
+   Alli en la seccion "Advanced Project Options" --> Pipeline encontramos que debemos configurar "Definition" en ese lugar seteamos ponemos "Pipeline script from SCM"<br>
+   Esto nos habilita "SCM" donde elegimos "Git"<br>
+   En "Repository URL" copiamos el path del proyecto Git en cuestion. Ej.:https://gitlab-it.gscorp.ad/JB01421/myProject <br>
+   En "Credentials" vamos a añadir la key privada con el bot&oacuten "add-->Jenkins"<br>
+   Esto te mostrara un popup, donde tendras "Kind" deberas elegir "SSH user name with private key"<br>
+   Luego seleccionamos el radio-button "Private Key" el cual te habilitara el input llamado "Key"<br>
+   Aqui debemos volver a nuestro terminal linux/mac/gitBash Windows para copiarnos nuestra clave privada ejecutando este comando:<br>
+   $ cat ~/.ssh/id_rsa<br>
+   Copias la key que muestra el terminal al input "Key" de nuestro JOB Jenkins quedandote asi:<br>
+   <img height="220" width="420" class="progressiveMedia-image js-progressiveMedia-image" data-src="https://devopscube.com/wp-content/uploads/2016/04/6.png" src="https://devopscube.com/wp-content/uploads/2016/04/6.png"><br>
+   Finalmente bot&oacuten "Add"<br>
+   Con esto ya estariamos deberias tener autenticado tu proyecto gitLab.<br>
 <P>En caso de tener alguna consulta no dudes en enviar un mail a tecnologiaaplicaciones@supervielle.com.ar <br>
 <HR>
 <br>
