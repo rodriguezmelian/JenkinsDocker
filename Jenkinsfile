@@ -9,7 +9,7 @@ pipeline {
                replyTo: env.DEFAULT_REPLYTO, 
                attachmentsPattern: '**/report.html',
                subject: 'README',
-               to: 'rodriguezmelian@hotmail.com'
+                  to: '${MAIL}'
                )
             }
         }
