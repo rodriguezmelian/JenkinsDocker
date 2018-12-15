@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts
-MAINTAINER gabriel.melian@supervielle.com.ar
+MAINTAINER gabriel.melian@supervielle.com.ar.
 USER root
 
 # Install the latest Docker CE binaries
