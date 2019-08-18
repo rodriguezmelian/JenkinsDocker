@@ -4,6 +4,7 @@ pipeline {
         string(defaultValue: "NOMBREIMAGEN", description: 'This is a parameter', name: 'IMAGETAG')
         string(defaultValue: "NOMBRECONTAINER", description: 'This is a parameter', name: 'NAME')
         string(defaultValue: "NUMERO DE PUERTO", description: 'This is a parameter', name: 'PORT')
+        string(defaultValue: "MAIL", description: 'This is a parameter', name: 'MAIL')
     }
     stages {
         stage('Build') {
