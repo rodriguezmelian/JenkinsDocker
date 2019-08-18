@@ -1,13 +1,12 @@
 pipeline {
     agent any
-    properties([
-    parameters([
-        string(name: 'IMAGTAG', description: 'Nombre de la imagen', ),
-        string(name: 'NAME', description: 'Nombre de la imagen', ),
-        string(name: 'PORT', description: 'Nombre de la imagen', ),
-        string(name: 'NAME', description: 'Nombre de la imagen', )
-     ])
-   ])
+       properties(
+    [
+        parameters(
+            [string(defaultValue: '', name: 'IMAGTAG'),
+            , string(defaultValue: '', name: 'NAME')]
+            )
+    ]) 
     stages {
         stage('Build') {
             steps {
