@@ -2,9 +2,9 @@ pipeline {
     agent any
     properties([
     parameters([
-        string(name: 'IMAGTAG', description: 'Nombre de la imagen', )
-        string(name: 'NAME', description: 'Nombre de la imagen', )
-        string(name: 'PORT', description: 'Nombre de la imagen', )
+        string(name: 'IMAGTAG', description: 'Nombre de la imagen', ),
+        string(name: 'NAME', description: 'Nombre de la imagen', ),
+        string(name: 'PORT', description: 'Nombre de la imagen', ),
         string(name: 'NAME', description: 'Nombre de la imagen', )
      ])
    ])
