@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(defaultValue: "NOMBREIMAGEN", description: 'This is a parameter', name: 'IMAGETAG')
+        string(defaultValue: "NOMBREIMAGEN", description: 'This is a parameter', name: 'IMAGTAG')
         string(defaultValue: "NOMBRECONTAINER", description: 'This is a parameter', name: 'NAME')
         string(defaultValue: "NUMERO DE PUERTO", description: 'This is a parameter', name: 'PORT')
         string(defaultValue: "MAIL", description: 'This is a parameter', name: 'MAIL')
