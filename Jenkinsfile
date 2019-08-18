@@ -1,10 +1,9 @@
 pipeline {
     agent any
     parameters {
-        string(defaultValue: "123", description: 'This is a parameter', name: 'PARAMETER01')
-        string(defaultValue: "123", description: 'This is a parameter', name: 'PARAMETER02')
-        string(defaultValue: "123", description: 'This is a parameter', name: 'PARAMETER03')
-        string(defaultValue: "123", description: 'This is a parameter', name: 'PARAMETER04')
+        string(defaultValue: "NOMBREIMAGEN", description: 'This is a parameter', name: 'IMAGETAG')
+        string(defaultValue: "NOMBRECONTAINER", description: 'This is a parameter', name: 'NAME')
+        string(defaultValue: "NUMERO DE PUERTO", description: 'This is a parameter', name: 'PORT')
     }
     stages {
         stage('Build') {
