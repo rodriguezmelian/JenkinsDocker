@@ -1,12 +1,8 @@
 pipeline {
     agent any
-       properties(
-    [
-        parameters(
-            [string(defaultValue: '', name: 'IMAGTAG'),
-            , string(defaultValue: '', name: 'NAME')]
-            )
-    ]) 
+    parameters {
+        string(defaultValue: "123", description: 'This is a parameter', name: 'PARAMETER01')
+    }
     stages {
         stage('Build') {
             steps {
